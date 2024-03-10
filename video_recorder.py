@@ -1,4 +1,5 @@
 import cv2
+import os
 
 
 class VideoRecorder:
@@ -43,10 +44,17 @@ class VideoRecorder:
         out.release()
         cv2.destroyAllWindows()
 
+    def delete_video_file(self, file_name):
+        if os.path.exists(file_name):
+            os.remove(file_name)
+            print(f"{file_name} has been deleted.")
+        else:
+            print(f"Error: {file_name} does not exist.")
 
-if __name__ == "__main__":
-    # Create an instance of VideoRecorder with default settings
-    recorder = VideoRecorder()
 
-    # Start recording
-    recorder.record()
+# if __name__ == "__main__":
+#     # Create an instance of VideoRecorder with default settings
+#     recorder = VideoRecorder()
+
+#     # Start recording
+#     recorder.record()

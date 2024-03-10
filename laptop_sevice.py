@@ -3,6 +3,8 @@ from laptop_feed_analysis import generate
 import time
 
 recorder = VideoRecorder(duration=5)
+
 recorder.record()
 time.sleep(6)
 generate()
+recorder.delete_video_file("output.mp4")
